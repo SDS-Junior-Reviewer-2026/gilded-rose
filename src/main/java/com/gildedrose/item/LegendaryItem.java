@@ -7,12 +7,11 @@ public class LegendaryItem extends Item {
     }
 
     @Override
-    public void updateQuality() {
-        return;
-    }
+    public void updateQuality() {}
 
     @Override
-    protected void increaseQuality(int value) {
+    protected void increaseQuality(int value) throws IllegalArgumentException {
+        if (value < 0) throw new IllegalArgumentException("Negative value is not allowed");
         quality += value;
     }
 }

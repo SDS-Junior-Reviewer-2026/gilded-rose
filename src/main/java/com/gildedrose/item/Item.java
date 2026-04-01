@@ -33,14 +33,16 @@ public class Item {
         }
     }
 
-    protected void increaseQuality(int value) {
+    protected void increaseQuality(int value) throws IllegalArgumentException {
+        if (value < 0) throw new IllegalArgumentException("Negative value is not allowed");
         quality += value;
         if (quality > 50) {
             quality = 50;
         }
     }
 
-    protected void decreaseQuality(int value) {
+    protected void decreaseQuality(int value) throws IllegalArgumentException {
+        if (value < 0) throw new IllegalArgumentException("Negative value is not allowed");
         quality -= value;
         if (quality < 0) {
             quality = 0;
