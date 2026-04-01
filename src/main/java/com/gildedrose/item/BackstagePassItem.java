@@ -2,7 +2,7 @@ package com.gildedrose.item;
 
 public class BackstagePassItem extends Item {
 
-    public BackstagePassItem(ItemType name, int sellIn, int quality) {
+    public BackstagePassItem(int sellIn, int quality) {
         super(ItemType.BACKSTAGE_PASSES, sellIn, quality);
     }
 

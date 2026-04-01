@@ -2,7 +2,7 @@ package com.gildedrose.item;
 
 public class NormalItem extends Item {
 
-    public NormalItem(ItemType name, int sellIn, int quality) {
+    public NormalItem(int sellIn, int quality) {
         super(ItemType.NORMAL, sellIn, quality);
     }
 
