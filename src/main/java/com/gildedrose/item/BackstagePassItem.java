@@ -7,20 +7,20 @@ public class BackstagePassItem extends Item {
     }
 
     @Override
-    public void changeQuality(Item item) {
-        item.setSellIn(item.getSellIn() - 1);
+    public void changeQuality() {
+        setSellIn(getSellIn() - 1);
 
-        if (item.getSellIn() < 0) {
-            item.setQuality(0);
+        if (getSellIn() < 0) {
+            setQuality(0);
         } else {
             int increase = 1;
-            if (item.getSellIn() < 10) {
+            if (getSellIn() < 10) {
                 increase++;
             }
-            if (item.getSellIn() < 5) {
+            if (getSellIn() < 5) {
                 increase++;
             }
-            item.setQuality(Math.min(50, item.getQuality() + increase));
+            setQuality(Math.min(50, getQuality() + increase));
         }
     }
 

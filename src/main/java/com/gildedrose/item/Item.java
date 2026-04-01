@@ -12,7 +12,7 @@ public abstract class Item {
         this.quality = quality;
     }
 
-    public abstract void changeQuality(Item item);
+    public abstract void changeQuality();
 
     public ItemType getName() {
         return this.name;

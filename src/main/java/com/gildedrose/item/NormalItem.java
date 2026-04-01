@@ -7,12 +7,12 @@ public class NormalItem extends Item {
     }
 
     @Override
-    public void changeQuality(Item item) {
-        item.setSellIn(item.getSellIn() - 1);
+    public void changeQuality() {
+        setSellIn(getSellIn() - 1);
 
-        item.setQuality(Math.max(0, item.getQuality() - 1));
-        if (item.getSellIn() < 0) {
-            item.setQuality(Math.max(0, item.getQuality() - 1));
+        setQuality(Math.max(0, getQuality() - 1));
+        if (getSellIn() < 0) {
+            setQuality(Math.max(0, getQuality() - 1));
         }
     }
 }

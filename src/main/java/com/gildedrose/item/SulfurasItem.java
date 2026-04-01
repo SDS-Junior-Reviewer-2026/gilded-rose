@@ -7,8 +7,8 @@ public class SulfurasItem extends Item {
     }
 
     @Override
-    public void changeQuality(Item item) {
-        item.setQuality(80);
+    public void changeQuality() {
+        setQuality(80);
     }
 
 }

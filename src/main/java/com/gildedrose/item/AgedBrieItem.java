@@ -7,12 +7,12 @@ public class AgedBrieItem extends Item {
     }
 
     @Override
-    public void changeQuality(Item item) {
-        item.setSellIn(item.getSellIn() - 1);
+    public void changeQuality() {
+        setSellIn(getSellIn() - 1);
 
-        item.setQuality(Math.min(50, item.getQuality() + 1));
-        if (item.getSellIn() < 0) {
-            item.setQuality(Math.min(50, item.getQuality() + 1));
+        setQuality(Math.min(50, getQuality() + 1));
+        if (getSellIn() < 0) {
+            setQuality(Math.min(50, getQuality() + 1));
         }
     }
 }
