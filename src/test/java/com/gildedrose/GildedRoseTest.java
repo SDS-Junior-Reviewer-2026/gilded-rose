@@ -3,25 +3,207 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
+import static com.gildedrose.ItemType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GildedRoseTest {
 
 	@Test
-	public void test() {
+	void should_be_nothing_when_no_item() {
+		// given
+		Item[] items = new Item[] {};
+		GildedRose app = new GildedRose(items);
 
-		Item[] items = new Item[]{
-				new Item("naname", 0, 0)
-		};
-		GildedRose gildedRose = new GildedRose(items);
+		// when
+		app.updateQuality();
 
-		gildedRose.updateQuality();
+		// then
+		assertEquals(0, items.length);
+	}
 
-		assertEquals(1, items.length);
-		assertEquals(-1, items[0].sellIn);
-		//assertEquals(0, items[0].quality);
+	@Test
+	void noname_sellin_0_quality_0() {
+		// given
+		Item[] items = new Item[] { new Item(NORMAL, 0, 0) };
+		GildedRose app = new GildedRose(items);
 
+		// when
+		app.updateQuality();
 
+		// then
+		assertEquals(-1, items[0].getSellIn());
+		assertEquals(0, items[0].getQuality());
+	}
+
+	@Test
+	void noname_sellin_0_quality_1() {
+		// given
+		Item[] items = new Item[] { new Item(NORMAL, 0, 1) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(-1, items[0].getSellIn());
+		assertEquals(0, items[0].getQuality());
+	}
+
+	@Test
+	void sulfuras_sellin_0_quality_80() {
+		// given
+		Item[] items = new Item[] { new Item(SULFURAS, 0, 80) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(0, items[0].getSellIn());
+		assertEquals(80, items[0].getQuality());
+	}
+
+	@Test
+	void agedBrie_sellin_0_quality_0() {
+		// given
+		Item[] items = new Item[] { new Item(AGED_BRIE, 0, 0) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(-1, items[0].getSellIn());
+		assertEquals(2, items[0].getQuality());
+	}
+
+	@Test
+	void backstagePasses_sellin_0_quality_0() {
+		// given
+		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 0, 0) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(-1, items[0].getSellIn());
+		assertEquals(0, items[0].getQuality());
+	}
+
+	@Test
+	void backstagePasses_sellin_0_quality_49() {
+		// given
+		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 0, 49) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(-1, items[0].getSellIn());
+		assertEquals(0, items[0].getQuality());
+	}
+
+	@Test
+	void backstagePasses_sellin_12_quality_0() {
+		// given
+		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 12, 0) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(11, items[0].getSellIn());
+		assertEquals(1, items[0].getQuality());
+	}
+
+	@Test
+	void sulfuras_sellin_m2_quality_80() {
+		// given
+		Item[] items = new Item[] { new Item(SULFURAS, -2, 80) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(-2, items[0].getSellIn());
+		assertEquals(80, items[0].getQuality());
+	}
+
+	@Test
+	void agedBrie_sellin_0_quality_50() {
+		// given
+		Item[] items = new Item[] { new Item(AGED_BRIE, 0, 50) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(-1, items[0].getSellIn());
+		assertEquals(50, items[0].getQuality());
+	}
+
+	//** 브랜치 누락된 것 위한 테스트 코드 아래 추가 **//
+	// -> "조건의 모든 경로(T/F)를 갔는가?"
+
+	@Test
+	void normal_sellin_5_quality_10() {
+		// given
+		Item[] items = new Item[] { new Item(NORMAL, 5, 10) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(4, items[0].getSellIn());
+		assertEquals(9, items[0].getQuality());
+	}
+
+	@Test
+	void agedBrie_sellin_5_quality_10() {
+		// given
+		Item[] items = new Item[] { new Item(AGED_BRIE, 5, 10) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(4, items[0].getSellIn());
+		assertEquals(11, items[0].getQuality());
+	}
+
+	@Test
+	void backstagePasses_sellin_10_quality_20() {
+		// given
+		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 10, 20) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(9, items[0].getSellIn());
+		assertEquals(22, items[0].getQuality());
+	}
+
+	@Test
+	void backstagePasses_sellin_5_quality_20() {
+		// given
+		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 5, 20) };
+		GildedRose app = new GildedRose(items);
+
+		// when
+		app.updateQuality();
+
+		// then
+		assertEquals(4, items[0].getSellIn());
+		assertEquals(23, items[0].getQuality());
 	}
 
 }
