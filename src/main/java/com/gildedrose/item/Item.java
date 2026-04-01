@@ -1,6 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
-public class Item {
+public abstract class Item {
 
     private ItemType name;
     private int sellIn;
@@ -11,6 +11,8 @@ public class Item {
         this.sellIn = sellIn;
         this.quality = quality;
     }
+
+    public abstract void changeQuality(Item item);
 
     public ItemType getName() {
         return this.name;

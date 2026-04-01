@@ -1,22 +1,24 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemType.*;
+import com.gildedrose.item.*;
+
+import static com.gildedrose.item.ItemType.*;
 
 public class TexttestFixture {
     public static void main(String[] args) {
         System.out.println("OMGHAI!");
 
         Item[] items = new Item[] {
-                new Item(NORMAL, 10, 20), //
-                new Item(AGED_BRIE, 2, 0), //
-                new Item(NORMAL, 5, 7), //
-                new Item(SULFURAS, 0, 80), //
-                new Item(SULFURAS, -1, 80),
-                new Item(BACKSTAGE_PASSES, 15, 20),
-                new Item(BACKSTAGE_PASSES, 10, 49),
-                new Item(BACKSTAGE_PASSES, 5, 49),
+                new NormalItem(NORMAL, 10, 20), //
+                new AgedBrieItem(AGED_BRIE, 2, 0), //
+                new NormalItem(NORMAL, 5, 7), //
+                new SulfurasItem(SULFURAS, 0, 80), //
+                new SulfurasItem(SULFURAS, -1, 80),
+                new BackstagePassItem(BACKSTAGE_PASSES, 15, 20),
+                new BackstagePassItem(BACKSTAGE_PASSES, 10, 49),
+                new BackstagePassItem(BACKSTAGE_PASSES, 5, 49),
                 // this conjured item does not work properly yet
-                new Item(NORMAL, 3, 6) };
+                new NormalItem(NORMAL, 3, 6) };
 
         GildedRose app = new GildedRose(items);
 

@@ -1,9 +1,10 @@
 package com.gildedrose;
 
 
+import com.gildedrose.item.*;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ItemType.*;
+import static com.gildedrose.item.ItemType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GildedRoseTest {
@@ -24,7 +25,7 @@ public class GildedRoseTest {
 	@Test
 	void noname_sellin_0_quality_0() {
 		// given
-		Item[] items = new Item[] { new Item(NORMAL, 0, 0) };
+		Item[] items = new Item[] { new NormalItem(NORMAL, 0, 0) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -38,7 +39,7 @@ public class GildedRoseTest {
 	@Test
 	void noname_sellin_0_quality_1() {
 		// given
-		Item[] items = new Item[] { new Item(NORMAL, 0, 1) };
+		Item[] items = new Item[] { new NormalItem(NORMAL, 0, 1) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -52,7 +53,7 @@ public class GildedRoseTest {
 	@Test
 	void sulfuras_sellin_0_quality_80() {
 		// given
-		Item[] items = new Item[] { new Item(SULFURAS, 0, 80) };
+		Item[] items = new Item[] { new SulfurasItem(SULFURAS, 0, 80) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -66,7 +67,7 @@ public class GildedRoseTest {
 	@Test
 	void agedBrie_sellin_0_quality_0() {
 		// given
-		Item[] items = new Item[] { new Item(AGED_BRIE, 0, 0) };
+		Item[] items = new Item[] { new AgedBrieItem(AGED_BRIE, 0, 0) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -80,7 +81,7 @@ public class GildedRoseTest {
 	@Test
 	void backstagePasses_sellin_0_quality_0() {
 		// given
-		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 0, 0) };
+		Item[] items = new Item[] { new BackstagePassItem(BACKSTAGE_PASSES, 0, 0) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -94,7 +95,7 @@ public class GildedRoseTest {
 	@Test
 	void backstagePasses_sellin_0_quality_49() {
 		// given
-		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 0, 49) };
+		Item[] items = new Item[] { new BackstagePassItem(BACKSTAGE_PASSES, 0, 49) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -108,7 +109,7 @@ public class GildedRoseTest {
 	@Test
 	void backstagePasses_sellin_12_quality_0() {
 		// given
-		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 12, 0) };
+		Item[] items = new Item[] { new BackstagePassItem(BACKSTAGE_PASSES, 12, 0) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -122,7 +123,7 @@ public class GildedRoseTest {
 	@Test
 	void sulfuras_sellin_m2_quality_80() {
 		// given
-		Item[] items = new Item[] { new Item(SULFURAS, -2, 80) };
+		Item[] items = new Item[] { new SulfurasItem(SULFURAS, -2, 80) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -136,7 +137,7 @@ public class GildedRoseTest {
 	@Test
 	void agedBrie_sellin_0_quality_50() {
 		// given
-		Item[] items = new Item[] { new Item(AGED_BRIE, 0, 50) };
+		Item[] items = new Item[] { new AgedBrieItem(AGED_BRIE, 0, 50) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -153,7 +154,7 @@ public class GildedRoseTest {
 	@Test
 	void normal_sellin_5_quality_10() {
 		// given
-		Item[] items = new Item[] { new Item(NORMAL, 5, 10) };
+		Item[] items = new Item[] { new NormalItem(NORMAL, 5, 10) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -167,7 +168,7 @@ public class GildedRoseTest {
 	@Test
 	void agedBrie_sellin_5_quality_10() {
 		// given
-		Item[] items = new Item[] { new Item(AGED_BRIE, 5, 10) };
+		Item[] items = new Item[] { new AgedBrieItem(AGED_BRIE, 5, 10) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -181,7 +182,7 @@ public class GildedRoseTest {
 	@Test
 	void backstagePasses_sellin_10_quality_20() {
 		// given
-		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 10, 20) };
+		Item[] items = new Item[] { new BackstagePassItem(BACKSTAGE_PASSES, 10, 20) };
 		GildedRose app = new GildedRose(items);
 
 		// when
@@ -195,7 +196,7 @@ public class GildedRoseTest {
 	@Test
 	void backstagePasses_sellin_5_quality_20() {
 		// given
-		Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 5, 20) };
+		Item[] items = new Item[] { new BackstagePassItem(BACKSTAGE_PASSES, 5, 20) };
 		GildedRose app = new GildedRose(items);
 
 		// when
