@@ -1,5 +1,10 @@
 package com.gildedrose;
 
+import com.gildedrose.item.FermentedItem;
+import com.gildedrose.item.Item;
+import com.gildedrose.item.LegendaryItem;
+import com.gildedrose.item.TicketItem;
+
 class GildedRose {
 
     private static final String AGED_BRIE = "Aged Brie";
@@ -10,53 +15,26 @@ class GildedRose {
 
     public GildedRose(Item[] items) {
         this.items = items;
-    }
-
-    public void updateQuality() {
-        for (Item item : items) {
-            if (SULFURAS.equals(item.name)) continue;
-
-            item.daysUntilExpiration--;
-
-            switch (item.name) {
+        for (int i = 0; i < items.length; i++) {
+            switch (items[i].name) {
                 case AGED_BRIE:
-                    updateCheeseQuality(item);
+                    items[i] = new FermentedItem(items[i]);
                     break;
                 case BACKSTAGE_PASS:
-                    updateTicketQuality(item);
+                    items[i] = new TicketItem(items[i]);
+                    break;
+                case SULFURAS:
+                    items[i] = new LegendaryItem(items[i]);
                     break;
                 default:
-                    updateNormalQuality(item);
                     break;
             }
         }
     }
 
-    private void updateCheeseQuality(Item item) {
-        if (item.daysUntilExpiration < 0) {
-            item.increaseQuality(2);
-        } else {
-            item.increaseQuality(1);
-        }
-    }
-
-    private void updateTicketQuality(Item item) {
-        if (item.daysUntilExpiration <= 0) {
-            item.decreaseQuality(item.getQuality());
-        } else if (item.daysUntilExpiration <= 5) {
-            item.increaseQuality(3);
-        } else if (item.daysUntilExpiration <= 10) {
-            item.increaseQuality(2);
-        } else {
-            item.increaseQuality(1);
-        }
-    }
-
-    private void updateNormalQuality(Item item) {
-        if (item.daysUntilExpiration < 0) {
-            item.decreaseQuality(2);
-        } else {
-            item.decreaseQuality(1);
+    public void updateQuality() {
+        for (Item item : items) {
+            item.updateQuality();
         }
     }
 }

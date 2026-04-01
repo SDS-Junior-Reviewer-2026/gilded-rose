@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.item;
 
 public class Item {
 
@@ -6,7 +6,7 @@ public class Item {
 
     public int daysUntilExpiration;
 
-    private int quality;
+    protected int quality;
 
     public Item(String name, int daysUntilExpiration, int quality) {
         this.name = name;
@@ -23,14 +23,24 @@ public class Item {
         return quality;
     }
 
-    public void increaseQuality(int value) {
+    public void updateQuality() {
+        daysUntilExpiration--;
+
+        if (daysUntilExpiration < 0) {
+            decreaseQuality(2);
+        } else {
+            decreaseQuality(1);
+        }
+    }
+
+    protected void increaseQuality(int value) {
         quality += value;
         if (quality > 50) {
             quality = 50;
         }
     }
 
-    public void decreaseQuality(int value) {
+    protected void decreaseQuality(int value) {
         quality -= value;
         if (quality < 0) {
             quality = 0;
