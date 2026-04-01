@@ -20,6 +20,7 @@ class GildedRose {
     //** 헬퍼 메서드 **//
 
     private static void changeQuality(Item item) {
+
         ItemType itemType = checkItemType(item);
 
         if (itemType.equals(SULFURAS)) {
